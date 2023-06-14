@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var views = [
+        HearthAnimationChapter03Program01()
+    ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(views, id: \.self) { view in
+                NavigationLink(view.programTitle) {
+                    view
+                }
+            }
         }
-        .padding()
     }
 }
 

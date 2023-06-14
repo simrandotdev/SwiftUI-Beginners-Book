@@ -11,6 +11,7 @@
 		3DF4E7202A39FE2000DDE3BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4E71F2A39FE2000DDE3BF /* ContentView.swift */; };
 		3DF4E7222A39FE2000DDE3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4E7212A39FE2000DDE3BF /* Assets.xcassets */; };
 		3DF4E7252A39FE2100DDE3BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4E7242A39FE2100DDE3BF /* Preview Assets.xcassets */; };
+		3DF4E72D2A39FE7000DDE3BF /* HearthAnimationChapter03Program01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4E72C2A39FE7000DDE3BF /* HearthAnimationChapter03Program01.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		3DF4E71F2A39FE2000DDE3BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3DF4E7212A39FE2000DDE3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF4E7242A39FE2100DDE3BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3DF4E72C2A39FE7000DDE3BF /* HearthAnimationChapter03Program01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthAnimationChapter03Program01.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		3DF4E71C2A39FE2000DDE3BF /* SwiftUI-Beginners-Book */ = {
 			isa = PBXGroup;
 			children = (
+				3DF4E72B2A39FE3500DDE3BF /* Chapter-03-Build-your-first-app-in-SwiftUI */,
 				3DF4E71D2A39FE2000DDE3BF /* SwiftUI_Beginners_BookApp.swift */,
 				3DF4E71F2A39FE2000DDE3BF /* ContentView.swift */,
 				3DF4E7212A39FE2000DDE3BF /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				3DF4E7242A39FE2100DDE3BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3DF4E72B2A39FE3500DDE3BF /* Chapter-03-Build-your-first-app-in-SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				3DF4E72C2A39FE7000DDE3BF /* HearthAnimationChapter03Program01.swift */,
+			);
+			path = "Chapter-03-Build-your-first-app-in-SwiftUI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF4E72D2A39FE7000DDE3BF /* HearthAnimationChapter03Program01.swift in Sources */,
 				3DF4E7202A39FE2000DDE3BF /* ContentView.swift in Sources */,
 				3DF4E71E2A39FE2000DDE3BF /* SwiftUI_Beginners_BookApp.swift in Sources */,
 			);
