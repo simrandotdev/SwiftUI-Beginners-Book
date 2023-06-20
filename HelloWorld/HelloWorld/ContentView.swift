@@ -15,9 +15,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action: {
-                let utterance = AVSpeechUtterance(string: "Hello World")
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                synthesizer.speak(utterance)
+                speak(text:"Hello World")
             }, label: {
                 Text("Hello World")
                     .font(.system(.title, design: .rounded, weight: .heavy))
@@ -28,9 +26,7 @@ struct ContentView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
             Button(action: {
-                let utterance = AVSpeechUtterance(string: "Happy Programming")
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                synthesizer.speak(utterance)
+                speak(text:"Happy Programming")
             }, label: {
                 Text("Happy Programming")
                     .font(.system(.title, design: .rounded, weight: .heavy))
@@ -41,6 +37,12 @@ struct ContentView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
         .padding()
+    }
+    
+    func speak(text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        synthesizer.speak(utterance)
     }
 }
 
