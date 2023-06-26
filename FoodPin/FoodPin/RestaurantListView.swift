@@ -20,10 +20,13 @@ struct RestaurantListView: View {
     var body: some View {
         List {
             ForEach(restaurantNames.indices, id: \.self) { index in
-                HStack(alignment: .top, spacing: 20) {
+                VStack(alignment: .leading, spacing: 20) {
                     Image(restaurantImages[index])
                         .resizable()
-                        .frame(width: 120, height: 118)
+                        .scaledToFill()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 180)
+                        
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                     
                     VStack(alignment: .leading) {
