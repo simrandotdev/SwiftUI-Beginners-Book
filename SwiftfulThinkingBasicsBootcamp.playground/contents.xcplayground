@@ -4,5 +4,7 @@
         <page name='SwiftBasics'/>
         <page name='BasicTypes'/>
         <page name='Variables'/>
+        <page name='Conditional_If_Statements'/>
+        <page name='Functions'/>
     </pages>
 </playground>
