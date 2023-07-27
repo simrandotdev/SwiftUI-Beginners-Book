@@ -38,6 +38,17 @@ struct RestaurantListView: View {
         List {
             ForEach(restaurants.indices, id: \.self) { index in
                 BasicTextImageView(restaurant: $restaurants[index])
+                    .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                        Button(action: {}, label: {
+                            Image(systemName: "heart")
+                        })
+                        .tint(.green)
+                        
+                        Button(action: {}, label: {
+                            Image(systemName: "square.and.arrow.up")
+                        })
+                        .tint(.orange)
+                    }
             }
             .onDelete(perform: { indexSet in
                 restaurants.remove(atOffsets: indexSet)
