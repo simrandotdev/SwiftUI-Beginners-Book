@@ -112,14 +112,7 @@ struct BasicTextImageView: View {
                 .foregroundColor(.red)
         }
         .contentShape(Rectangle())
-        .onTapGesture
-        {
-            showOptions.toggle()
-        }
-        .confirmationDialog("What do you want to do?",
-                            isPresented: $showOptions,
-                            titleVisibility: .visible)
-        {
+        .contextMenu(menuItems: {
             Button("Reserve a table") {
                 self.showError.toggle()
             }
@@ -127,7 +120,7 @@ struct BasicTextImageView: View {
             Button( restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite") {
                 self.restaurant.isFavorite.toggle()
             }
-        }
+        })
         .alert("Not yet available", isPresented: $showError)
         {
             Button("OK") { }
