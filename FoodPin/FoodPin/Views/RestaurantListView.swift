@@ -39,6 +39,9 @@ struct RestaurantListView: View {
             ForEach(restaurants.indices, id: \.self) { index in
                 BasicTextImageView(restaurant: $restaurants[index])
             }
+            .onDelete(perform: { indexSet in
+                restaurants.remove(atOffsets: indexSet)
+            })
             .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
