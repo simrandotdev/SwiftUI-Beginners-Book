@@ -120,6 +120,16 @@ struct BasicTextImageView: View {
             Button( restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite") {
                 self.restaurant.isFavorite.toggle()
             }
+            
+            Button {
+                self.showOptions.toggle()
+            } label: {
+                HStack {
+                    Text("Share")
+                    Image(systemName: "square.and.up.arrow")
+                }
+            }
+
         })
         .alert("Not yet available", isPresented: $showError)
         {
@@ -127,6 +137,14 @@ struct BasicTextImageView: View {
         } message:
         {
             Text("Sorry, this feature is not yet available. Please try again later.")
+        }
+        .sheet(isPresented: $showOptions) {
+            let defaultText = "Just checking in at \(restaurant.name)"
+            if let imageToShare = UIImage(named: restaurant.image) {
+                ActivityView(activityItems: [defaultText, imageToShare])
+            } else {
+                ActivityView(activityItems: [defaultText])
+            }
         }
         
         
