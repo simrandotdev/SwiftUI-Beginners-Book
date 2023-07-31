@@ -67,7 +67,7 @@ struct RestaurantDetailView: View {
                 }
                 .padding(.horizontal)
             }
-            .padding(.vertical, -20)
+            .padding(.vertical, -30)
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
