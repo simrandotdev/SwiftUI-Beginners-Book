@@ -107,7 +107,9 @@ struct BasicTextImageView: View {
             
             VStack(alignment: .leading) {
                 Text(restaurant.name)
-                    .font(.system(.title2, design: .rounded))
+                    .lineLimit(2)
+                    .font(.custom("Nunito-Bold", size: 24, relativeTo: .title2))
+                    
                 
                 Text(restaurant.type)
                     .font(.system(.body, design: .rounded))
