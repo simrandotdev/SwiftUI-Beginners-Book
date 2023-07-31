@@ -23,11 +23,11 @@ struct RestaurantDetailView: View {
                     .frame(height: 445)
                     .overlay {
                         VStack {
-                            Image(systemName: "heart")
+                            Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
                                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
                                 .padding()
                                 .font(.system(size: 30))
-                                .foregroundColor(.white)
+                                .foregroundColor(.red)
                                 .padding(.top, 70)
                                 .padding(.trailing, 20)
                         }
