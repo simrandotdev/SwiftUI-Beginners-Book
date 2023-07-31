@@ -14,24 +14,62 @@ struct RestaurantDetailView: View {
     var restaurant: Restaurant
     
     var body: some View {
-        ZStack(alignment: .top) {
-            Image(restaurant.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-            
-            VStack(alignment: .center) {
-                Text(restaurant.name)
-                Text(restaurant.type)
-                Text(restaurant.location)
+        ScrollView {
+            VStack(alignment: .leading) {
+                Image(restaurant.image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 445)
+                    .overlay {
+                        VStack {
+                            Image(systemName: "heart")
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
+                                .padding()
+                                .font(.system(size: 30))
+                                .foregroundColor(.white)
+                                .padding(.top, 70)
+                                .padding(.trailing, 20)
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(restaurant.name)
+                                .font(.custom("Nunito-Regular", size: 35, relativeTo: .largeTitle))
+                                .bold()
+                            
+                            Text(restaurant.type)
+                                .font(.system(.headline, design: .rounded))
+                                .padding(.all, 5)
+                                .background(Color.black)
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                        .foregroundColor(.white)
+                        .padding()
+                        .padding(.bottom, 24)
+                    }
+                
+                Text(restaurant.description)
+                    .padding()
+                
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text("ADDRESS")
+                            .font(.system(.headline, design: .rounded))
+                        Text(restaurant.location)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading) {
+                        Text("PHONE")
+                            .font(.system(.headline, design: .rounded))
+                        Text(restaurant.phone)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.horizontal)
             }
-            .padding()
-            .padding(.horizontal, 20)
-            .background(Color.black.opacity(0.85))
-            .foregroundColor(Color.white)
-            .cornerRadius(10)
-            .frame(maxWidth: .infinity)
+            .padding(.vertical, -20)
         }
+        .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
