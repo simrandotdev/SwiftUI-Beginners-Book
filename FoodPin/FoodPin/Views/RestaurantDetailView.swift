@@ -47,10 +47,6 @@ struct RestaurantDetailView: View {
 
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailView(restaurant: .init(name: "Moca Loca",
-                                               type: "Cafe",
-                                               location: "Maple Ridge, BC",
-                                               image: "homei",
-                                               isFavorite: false))
+        RestaurantDetailView(restaurant: .init(name: "Name", type: "Type", location: "Location", phone: "222-222-2222", description: "Some long format description here for the restaurant", image: "royaload", isFavorite: false))
     }
 }
