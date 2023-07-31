@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D400D9D2A4DDE4B002067B1 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D400D9C2A4DDE4B002067B1 /* Restaurant.swift */; };
+		3D5C6D5E2A77FB9400992CBB /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D5C6D5C2A77FB9400992CBB /* Nunito-Regular.ttf */; };
+		3D5C6D5F2A77FB9400992CBB /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D5C6D5D2A77FB9400992CBB /* Nunito-Bold.ttf */; };
 		3D660E262A73626F00E19806 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D660E252A73626F00E19806 /* ActivityView.swift */; };
 		3D660E282A736CD500E19806 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D660E272A736CD500E19806 /* RestaurantDetailView.swift */; };
 		3DB40D622A4A1E3E00C7CD91 /* FoodPinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB40D612A4A1E3E00C7CD91 /* FoodPinApp.swift */; };
@@ -18,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		3D400D9C2A4DDE4B002067B1 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		3D5C6D5C2A77FB9400992CBB /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		3D5C6D5D2A77FB9400992CBB /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		3D5C6D602A77FBCF00992CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3D660E252A73626F00E19806 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		3D660E272A736CD500E19806 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		3DB40D5E2A4A1E3E00C7CD91 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +61,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3D5C6D5A2A77FB4500992CBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D5C6D5B2A77FB4D00992CBB /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3D5C6D5B2A77FB4D00992CBB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3D5C6D5D2A77FB9400992CBB /* Nunito-Bold.ttf */,
+				3D5C6D5C2A77FB9400992CBB /* Nunito-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3DB40D552A4A1E3D00C7CD91 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +97,8 @@
 		3DB40D602A4A1E3E00C7CD91 /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				3D5C6D602A77FBCF00992CBB /* Info.plist */,
+				3D5C6D5A2A77FB4500992CBB /* Resources */,
 				3D400D9F2A4DE0E3002067B1 /* Views */,
 				3D400D9E2A4DE0DB002067B1 /* Models */,
 				3DB40D612A4A1E3E00C7CD91 /* FoodPinApp.swift */,
@@ -150,7 +174,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5C6D5E2A77FB9400992CBB /* Nunito-Regular.ttf in Resources */,
 				3DB40D692A4A1E3F00C7CD91 /* Preview Assets.xcassets in Resources */,
+				3D5C6D5F2A77FB9400992CBB /* Nunito-Bold.ttf in Resources */,
 				3DB40D662A4A1E3F00C7CD91 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +324,7 @@
 				DEVELOPMENT_TEAM = WC362J72KA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodPin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,6 +355,7 @@
 				DEVELOPMENT_TEAM = WC362J72KA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodPin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
