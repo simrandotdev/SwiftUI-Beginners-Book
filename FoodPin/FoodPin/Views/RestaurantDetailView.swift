@@ -10,7 +10,6 @@ import SwiftUI
 struct RestaurantDetailView: View {
     
     @Environment(\.dismiss) var dismiss
-    
     var restaurant: Restaurant
     
     var body: some View {
@@ -66,6 +65,10 @@ struct RestaurantDetailView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.horizontal)
+                
+                MapView(location: restaurant.location)
+                    .frame(maxWidth: .infinity, minHeight: 200)
+                    .padding(.bottom, 100)
             }
             .padding(.vertical, -30)
         }
