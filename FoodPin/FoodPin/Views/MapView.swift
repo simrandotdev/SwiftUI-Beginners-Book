@@ -21,25 +21,28 @@ struct MapView: View {
             longitudeDelta: 1.0
         )
     )
+    @State private var annotatedItems: [AnnotatedItem] = [
+    ]
     
     init(location: String) {
         self.location = location
     }
     
     var body: some View {
-        Map(coordinateRegion: $region)
-            .onAppear {
-                convertAddress(location: location)
-            }
+        Map(coordinateRegion: $region, annotationItems: annotatedItems) { item in
+            MapMarker(coordinate: item.coordinates, tint: .red)
+        }
+        .onAppear {
+            convertAddress(location: location)
+        }
     }
     
     private func convertAddress(location: String) {
         Task {
             do {
                 let geoCoder = CLGeocoder()
-                let placemark = try await geoCoder.geocodeAddressString(location)
-                
-                guard let location = placemark.first?.location else {
+                let placemarks = try await geoCoder.geocodeAddressString(location)
+                guard let location = placemarks.first?.location else {
                     return
                 }
                 
@@ -50,9 +53,7 @@ struct MapView: View {
                         longitudeDelta: 1.0
                     )
                 )
-                
-            
-                
+                self.annotatedItems.append(AnnotatedItem(coordinates: location.coordinate))
             } catch {
                 print("❌ Error in \(#function) ", error)
             }

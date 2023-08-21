@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1332B12A93AA6100942C5C /* AnnotatedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1332B02A93AA6100942C5C /* AnnotatedItem.swift */; };
 		3D2535A02A813320001CD155 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D25359F2A813320001CD155 /* MapView.swift */; };
 		3D400D9D2A4DDE4B002067B1 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D400D9C2A4DDE4B002067B1 /* Restaurant.swift */; };
 		3D5C6D5E2A77FB9400992CBB /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D5C6D5C2A77FB9400992CBB /* Nunito-Regular.ttf */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D1332B02A93AA6100942C5C /* AnnotatedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedItem.swift; sourceTree = "<group>"; };
 		3D25359F2A813320001CD155 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3D400D9C2A4DDE4B002067B1 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		3D5C6D5C2A77FB9400992CBB /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				3D400D9C2A4DDE4B002067B1 /* Restaurant.swift */,
+				3D1332B02A93AA6100942C5C /* AnnotatedItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				3DB40D642A4A1E3E00C7CD91 /* RestaurantListView.swift in Sources */,
 				3D2535A02A813320001CD155 /* MapView.swift in Sources */,
 				3D660E282A736CD500E19806 /* RestaurantDetailView.swift in Sources */,
+				3D1332B12A93AA6100942C5C /* AnnotatedItem.swift in Sources */,
 				3D660E262A73626F00E19806 /* ActivityView.swift in Sources */,
 				3DB40D622A4A1E3E00C7CD91 /* FoodPinApp.swift in Sources */,
 				3D400D9D2A4DDE4B002067B1 /* Restaurant.swift in Sources */,
