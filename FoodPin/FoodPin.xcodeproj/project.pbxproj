@@ -16,6 +16,9 @@
 		3D5C6D5F2A77FB9400992CBB /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D5C6D5D2A77FB9400992CBB /* Nunito-Bold.ttf */; };
 		3D660E262A73626F00E19806 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D660E252A73626F00E19806 /* ActivityView.swift */; };
 		3D660E282A736CD500E19806 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D660E272A736CD500E19806 /* RestaurantDetailView.swift */; };
+		3D8044142A95614700579B2C /* NewRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8044132A95614700579B2C /* NewRestaurantView.swift */; };
+		3D8044162A9562A100579B2C /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8044152A9562A100579B2C /* FormTextField.swift */; };
+		3D8044182A95634100579B2C /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8044172A95634100579B2C /* FormTextView.swift */; };
 		3DB40D622A4A1E3E00C7CD91 /* FoodPinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB40D612A4A1E3E00C7CD91 /* FoodPinApp.swift */; };
 		3DB40D642A4A1E3E00C7CD91 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB40D632A4A1E3E00C7CD91 /* RestaurantListView.swift */; };
 		3DB40D662A4A1E3F00C7CD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB40D652A4A1E3F00C7CD91 /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		3D5C6D602A77FBCF00992CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3D660E252A73626F00E19806 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		3D660E272A736CD500E19806 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
+		3D8044132A95614700579B2C /* NewRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantView.swift; sourceTree = "<group>"; };
+		3D8044152A9562A100579B2C /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		3D8044172A95634100579B2C /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
 		3DB40D5E2A4A1E3E00C7CD91 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB40D612A4A1E3E00C7CD91 /* FoodPinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinApp.swift; sourceTree = "<group>"; };
 		3DB40D632A4A1E3E00C7CD91 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				3D660E272A736CD500E19806 /* RestaurantDetailView.swift */,
 				3D25359F2A813320001CD155 /* MapView.swift */,
 				3D1332B42A93B11200942C5C /* ReviewView.swift */,
+				3D8044132A95614700579B2C /* NewRestaurantView.swift */,
+				3D8044152A9562A100579B2C /* FormTextField.swift */,
+				3D8044172A95634100579B2C /* FormTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +209,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8044142A95614700579B2C /* NewRestaurantView.swift in Sources */,
+				3D8044182A95634100579B2C /* FormTextView.swift in Sources */,
 				3DB40D642A4A1E3E00C7CD91 /* RestaurantListView.swift in Sources */,
 				3D1332B52A93B11200942C5C /* ReviewView.swift in Sources */,
 				3D2535A02A813320001CD155 /* MapView.swift in Sources */,
@@ -209,6 +220,7 @@
 				3D660E262A73626F00E19806 /* ActivityView.swift in Sources */,
 				3DB40D622A4A1E3E00C7CD91 /* FoodPinApp.swift in Sources */,
 				3D400D9D2A4DDE4B002067B1 /* Restaurant.swift in Sources */,
+				3D8044162A9562A100579B2C /* FormTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
