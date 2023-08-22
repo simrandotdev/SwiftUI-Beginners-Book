@@ -48,13 +48,18 @@ struct ReviewView: View {
             
             VStack(alignment: .leading) {
                 ForEach(Rating.allCases, id: \.self) { rating in
-                    HStack {
-                        Image(rating.image)
-                        Text(rating.rawValue.capitalized)
-                            .font(.system(.title, design: .rounded))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                    }
+                    Button(action: {
+                        restaurant.rating = rating
+                        isDisplayed = false
+                    }, label: {
+                        HStack {
+                            Image(rating.image)
+                            Text(rating.rawValue.capitalized)
+                                .font(.system(.title, design: .rounded))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                    })
                     .opacity(showRatings ? 1.0 : 0)
                     .offset(x: showRatings ? 0 : 1000)
                     .animation(
