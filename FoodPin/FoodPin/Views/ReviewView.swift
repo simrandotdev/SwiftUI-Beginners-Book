@@ -11,15 +11,16 @@ struct ReviewView: View {
     
     var restaurant: Restaurant
     @Binding var isDisplayed: Bool
+    @State private var showRatings = false
     
     var body: some View {
         ZStack {
             
-            Image(restaurant.image)
-                .resizable()
-                .scaledToFill()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .ignoresSafeArea()
+//            Image(restaurant.image)
+//                .resizable()
+//                .scaledToFill()
+//                .frame(minWidth: 0, maxWidth: .infinity)
+//                .ignoresSafeArea()
             
             Color.black
                 .opacity(0.6)
@@ -54,8 +55,20 @@ struct ReviewView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
+                    .opacity(showRatings ? 1.0 : 0)
+                    .offset(x: showRatings ? 0 : 1000)
+                    .animation(
+                        .spring(response: 0.75,
+                                dampingFraction: 0.6,
+                                blendDuration: 0.0)
+                        .delay( (Double(Rating.allCases.firstIndex(of: rating)!) + 0.2) * 0.75),
+                        value: showRatings
+                    )
                 }
             }
+        }
+        .onAppear {
+            showRatings.toggle()
         }
     }
 }

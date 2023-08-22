@@ -103,6 +103,7 @@ struct RestaurantDetailView: View {
                     ReviewView(restaurant: restaurant, isDisplayed: $showRateView)
                         .navigationBarHidden(true)
                 }
+                .transition(.move(edge: .trailing))
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -115,6 +116,7 @@ struct RestaurantDetailView: View {
                 }
             }
         }
+
     }
 }
 
