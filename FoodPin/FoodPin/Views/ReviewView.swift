@@ -30,7 +30,9 @@ struct ReviewView: View {
                 Spacer()
                 VStack {
                     Button {
-                        isDisplayed = false
+                        withAnimation(.easeOut) {
+                            isDisplayed = false
+                        }
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 30))

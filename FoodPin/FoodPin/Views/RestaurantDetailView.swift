@@ -80,7 +80,9 @@ struct RestaurantDetailView: View {
 
                 
                 Button {
-                    self.showRateView.toggle()
+                    withAnimation(.easeIn) {
+                        self.showRateView.toggle()
+                    }
                 } label: {
                     Text("Rate it")
                         .font(.system(.headline, design: .rounded))
