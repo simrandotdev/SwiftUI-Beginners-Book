@@ -10,6 +10,8 @@ import SwiftUI
 struct RestaurantDetailView: View {
     
     @Environment(\.dismiss) var dismiss
+    @State private var showRateView = false
+    
     var restaurant: Restaurant
     
     var body: some View {
@@ -73,11 +75,24 @@ struct RestaurantDetailView: View {
                     MapView(location: restaurant.location)
                         .frame(maxWidth: .infinity, minHeight: 200)
                         .cornerRadius(20)
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 20)
                 }
 
+                
+                Button {
+                    self.showRateView.toggle()
+                } label: {
+                    Text("Rate it")
+                        .font(.system(.headline, design: .rounded))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .tint(Color(uiColor: .systemRed))
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 25))
+                .controlSize(.large)
+                .padding(.horizontal)
+                .padding(.bottom, 80)
             }
-            .padding(.vertical, -30)
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
