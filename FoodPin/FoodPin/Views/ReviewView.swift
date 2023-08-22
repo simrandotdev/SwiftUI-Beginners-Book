@@ -10,6 +10,7 @@ import SwiftUI
 struct ReviewView: View {
     
     var restaurant: Restaurant
+    @Binding var isDisplayed: Bool
     
     var body: some View {
         ZStack {
@@ -29,7 +30,7 @@ struct ReviewView: View {
                 Spacer()
                 VStack {
                     Button {
-                        
+                        isDisplayed = false
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 30))
@@ -65,6 +66,7 @@ struct ReviewView_Previews: PreviewProvider {
                                           phone: "232-923423",
                                           description: "Searching for great breakfast eateries and coffee? This place is for you. We open at 6:30 every morning, and close at 9 PM. We offer espresso and espresso based drink, such as capuccino, cafe latte, piccolo and many more. Come over and enjoy a great meal.",
                                           image: "cafedeadend",
-                                          isFavorite: true))
+                                          isFavorite: true),
+                   isDisplayed: .constant(false))
     }
 }

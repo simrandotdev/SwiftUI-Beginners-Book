@@ -95,6 +95,14 @@ struct RestaurantDetailView: View {
             }
         }
         .ignoresSafeArea()
+        .overlay {
+            if showRateView {
+                ZStack {
+                    ReviewView(restaurant: restaurant, isDisplayed: $showRateView)
+                        .navigationBarHidden(true)
+                }
+            }
+        }
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
