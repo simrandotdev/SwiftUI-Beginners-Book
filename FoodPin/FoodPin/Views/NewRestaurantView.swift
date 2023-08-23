@@ -60,6 +60,14 @@ struct NewRestaurantView: View {
                     Text("Photo Library")
                 }
             }
+            .fullScreenCover(item: $photoSource) { source in
+                switch source {
+                case .camera:
+                    ImagePicker(sourceType: .camera, selectedImage: $restaurantImage)
+                case .photoLibrary:
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: $restaurantImage)
+                }
+            }
         }
     }
 }
