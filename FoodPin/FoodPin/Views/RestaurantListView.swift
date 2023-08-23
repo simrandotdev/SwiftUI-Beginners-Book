@@ -76,6 +76,7 @@ struct RestaurantListView: View {
                         Image(systemName: "plus")
                             .fontWeight(.bold)
                     }
+                    .foregroundColor(Color(uiColor: .systemRed))
                 }
             }
             .sheet(isPresented: $showNewRestaurantView) {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewRestaurantView: View {
     
+    @Environment(\.dismiss) private var dismiss
     @State private var restaurantName = ""
     @State private var restaurantType = ""
     @State private var restaurantAddress = ""
@@ -66,6 +67,24 @@ struct NewRestaurantView: View {
                     ImagePicker(sourceType: .camera, selectedImage: $restaurantImage)
                 case .photoLibrary:
                     ImagePicker(sourceType: .photoLibrary, selectedImage: $restaurantImage)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Text("Save")
+                            .font(.headline)
+                            .foregroundColor(Color(uiColor: .systemRed))
+                    }
                 }
             }
         }
