@@ -14,11 +14,26 @@ struct NewRestaurantView: View {
     @State private var restaurantAddress = ""
     @State private var restaurantPhone = ""
     @State private var restaurantDescription = ""
+    @State private var restaurantImage = UIImage(named: "newphoto")!
+    @State private var showPhotoOptions = false
+    @State private var photoSource: PhotoSource?
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
+                    Image(uiImage: restaurantImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 200)
+                        .background(Color(.systemGray6))
+                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                        .padding(.bottom)
+                        .onTapGesture {
+                            showPhotoOptions = true
+                        }
+                    
                     FormTextField(label: "NAME", placeHolder: "Fill in the restaurant name", value: $restaurantName)
                     
                     FormTextField(label: "TYPE", placeHolder: "Fill in the restaurant type", value: $restaurantType)
@@ -32,6 +47,19 @@ struct NewRestaurantView: View {
                 .padding()
             }
             .navigationTitle("New Restaurant")
+            .confirmationDialog("Selct a photo source", isPresented: $showPhotoOptions) {
+                Button {
+                    photoSource = .camera
+                } label: {
+                    Text("Camera")
+                }
+
+                Button {
+                    photoSource = .photoLibrary
+                } label: {
+                    Text("Photo Library")
+                }
+            }
         }
     }
 }
@@ -39,5 +67,15 @@ struct NewRestaurantView: View {
 struct NewRestaurantView_Previews: PreviewProvider {
     static var previews: some View {
         NewRestaurantView()
+    }
+}
+
+extension NewRestaurantView {
+    enum PhotoSource: Identifiable {
+        case photoLibrary
+        case camera
+        var id: Int {
+            hashValue
+        }
     }
 }
