@@ -17,7 +17,7 @@ struct RestaurantDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Image(restaurant.image)
+                Image(uiImage: UIImage(data: restaurant.image) ?? UIImage())
                     .resizable()
                     .scaledToFit()
                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -135,6 +135,7 @@ struct RestaurantDetailView: View {
 
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailView(restaurant: .init(name: "Name", type: "Type", location: "Location", phone: "222-222-2222", description: "Some long format description here for the restaurant", image: "royaload", isFavorite: false))
+        RestaurantDetailView(restaurant: (PersistenceController.testData?.first)!)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
