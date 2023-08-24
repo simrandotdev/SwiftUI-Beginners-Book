@@ -16,7 +16,8 @@ struct RestaurantListView: View {
     var restaurants: FetchedResults<Restaurant>
 
     @State private var showNewRestaurantView = false
-    @State var restaurantIsFavorites = Array(repeating: false, count: 21)
+    @State private var restaurantIsFavorites = Array(repeating: false, count: 21)
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
@@ -69,7 +70,12 @@ struct RestaurantListView: View {
                 NewRestaurantView()
             }
         }
+        .searchable(text: $searchText)
         .tint(Color.white)
+        .onChange(of: searchText) { newValue in
+            let predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[c] %@", searchText)
+            restaurants.nsPredicate = predicate
+        }
     }
     
     private func deleteRecord(indexSet: IndexSet) {
