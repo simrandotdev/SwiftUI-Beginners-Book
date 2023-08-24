@@ -21,32 +21,36 @@ struct RestaurantListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(restaurants.indices, id: \.self) { index in
-                    ZStack {
-                        NavigationLink(destination: {
-                            RestaurantDetailView(restaurant: restaurants[index])
-                        }, label: {
-                            EmptyView()
-                        }).opacity(0)
-                        
-                        BasicTextImageView(restaurant: restaurants[index])
+                if restaurants.isEmpty {
+                    EmptyView()
+                } else {
+                    ForEach(restaurants.indices, id: \.self) { index in
+                        ZStack {
+                            NavigationLink(destination: {
+                                RestaurantDetailView(restaurant: restaurants[index])
+                            }, label: {
+                                EmptyView()
+                            }).opacity(0)
+                            
+                            BasicTextImageView(restaurant: restaurants[index])
+                        }
+                        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                            Button(action: {}, label: {
+                                Image(systemName: "heart")
+                            })
+                            .tint(.green)
+                            
+                            Button(action: {}, label: {
+                                Image(systemName: "square.and.arrow.up")
+                            })
+                            .tint(.orange)
+                        }
                     }
-                    .swipeActions(edge: .leading, allowsFullSwipe: false) {
-                        Button(action: {}, label: {
-                            Image(systemName: "heart")
-                        })
-                        .tint(.green)
-                        
-                        Button(action: {}, label: {
-                            Image(systemName: "square.and.arrow.up")
-                        })
-                        .tint(.orange)
-                    }
+                    .onDelete(perform: { indexSet in
+                        deleteRecord(indexSet: indexSet)
+                    })
+                    .listRowSeparator(.hidden)
                 }
-                .onDelete(perform: { indexSet in
-                    deleteRecord(indexSet: indexSet)
-                })
-                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .navigationTitle("🥙 Food Pin")
