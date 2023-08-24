@@ -10,20 +10,23 @@ import SwiftUI
 struct NewRestaurantView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @State private var restaurantName = ""
-    @State private var restaurantType = ""
-    @State private var restaurantAddress = ""
-    @State private var restaurantPhone = ""
-    @State private var restaurantDescription = ""
-    @State private var restaurantImage = UIImage(named: "newphoto")!
+    @Environment(\.managedObjectContext) var context
     @State private var showPhotoOptions = false
     @State private var photoSource: PhotoSource?
+    
+    @ObservedObject var restaurantViewModel: NewRestaurantFormViewModel
+    
+    init() {
+        let viewModel = NewRestaurantFormViewModel()
+        viewModel.image = UIImage(named: "newphoto")!
+        restaurantViewModel = viewModel
+    }
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Image(uiImage: restaurantImage)
+                    Image(uiImage: restaurantViewModel.image)
                         .resizable()
                         .scaledToFill()
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -35,15 +38,15 @@ struct NewRestaurantView: View {
                             showPhotoOptions = true
                         }
                     
-                    FormTextField(label: "NAME", placeHolder: "Fill in the restaurant name", value: $restaurantName)
+                    FormTextField(label: "NAME", placeHolder: "Fill in the restaurant name", value: $restaurantViewModel.name)
                     
-                    FormTextField(label: "TYPE", placeHolder: "Fill in the restaurant type", value: $restaurantType)
+                    FormTextField(label: "TYPE", placeHolder: "Fill in the restaurant type", value: $restaurantViewModel.type)
                     
-                    FormTextField(label: "ADDRESS", placeHolder: "Fill in the restaurant address", value: $restaurantAddress)
+                    FormTextField(label: "ADDRESS", placeHolder: "Fill in the restaurant address", value: $restaurantViewModel.location)
                     
-                    FormTextField(label: "PHONE", placeHolder: "Fill in the restaurant phone", value: $restaurantPhone)
+                    FormTextField(label: "PHONE", placeHolder: "Fill in the restaurant phone", value: $restaurantViewModel.phone)
                     
-                    FormTextView(label: "DESCRIPTION", value: $restaurantDescription)
+                    FormTextView(label: "DESCRIPTION", value: $restaurantViewModel.description)
                 }
                 .padding()
             }
@@ -64,9 +67,9 @@ struct NewRestaurantView: View {
             .fullScreenCover(item: $photoSource) { source in
                 switch source {
                 case .camera:
-                    ImagePicker(sourceType: .camera, selectedImage: $restaurantImage)
+                    ImagePicker(sourceType: .camera, selectedImage: $restaurantViewModel.image)
                 case .photoLibrary:
-                    ImagePicker(sourceType: .photoLibrary, selectedImage: $restaurantImage)
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: $restaurantViewModel.image)
                 }
             }
             .toolbar {
@@ -79,6 +82,7 @@ struct NewRestaurantView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        restaurantViewModel.saveRestaurant(with: context)
                         dismiss()
                     }) {
                         Text("Save")
