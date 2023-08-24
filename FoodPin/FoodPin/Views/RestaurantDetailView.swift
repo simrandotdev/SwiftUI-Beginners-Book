@@ -10,9 +10,10 @@ import SwiftUI
 struct RestaurantDetailView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var context
     @State private var showRateView = false
     
-    var restaurant: Restaurant
+    @ObservedObject var restaurant: Restaurant
     
     var body: some View {
         ScrollView {
@@ -24,45 +25,47 @@ struct RestaurantDetailView: View {
                     .frame(height: 445)
                     .overlay {
                         VStack {
-                            Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
-                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
+                            if restaurant.isFavorite {
+                                Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
+                                    .padding()
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.red)
+                                    .padding(.top, 70)
+                                    .padding(.trailing, 20)
+                            }
+                            
+                            HStack(alignment: .bottom) {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text(restaurant.name)
+                                        .font(.custom("Nunito-Regular", size: 35, relativeTo: .largeTitle))
+                                        .bold()
+                                    
+                                    Text(restaurant.type)
+                                        .font(.system(.headline, design: .rounded))
+                                        .padding(.all, 5)
+                                        .background(Color.black)
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                                .foregroundColor(.white)
                                 .padding()
-                                .font(.system(size: 30))
-                                .foregroundColor(.red)
-                                .padding(.top, 70)
-                                .padding(.trailing, 20)
-                        }
-                        
-                        HStack(alignment: .bottom) {
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text(restaurant.name)
-                                    .font(.custom("Nunito-Regular", size: 35, relativeTo: .largeTitle))
-                                    .bold()
                                 
-                                Text(restaurant.type)
-                                    .font(.system(.headline, design: .rounded))
-                                    .padding(.all, 5)
-                                    .background(Color.black)
+                                Spacer()
+                                
+                                if let rating = restaurant.rating {
+                                    Image(rating.image)
+                                        .resizable()
+                                        .frame(width: 60, height: 60)
+                                        .padding([.bottom, .trailing])
+                                        .transition(.scale)
+                                }
                             }
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                            .foregroundColor(.white)
-                            .padding()
-                            
-                            Spacer()
-                            
-                            if let rating = restaurant.rating {
-                                Image(rating.image)
-                                    .resizable()
-                                    .frame(width: 60, height: 60)
-                                    .padding([.bottom, .trailing])
-                                    .transition(.scale)
-                            }
+                            .padding(.bottom, 24)
+                            .animation(.spring(response: 0.2, dampingFraction: 0.3, blendDuration: 0.3), value: restaurant.rating)
                         }
-                        .padding(.bottom, 24)
-                        .animation(.spring(response: 0.2, dampingFraction: 0.3, blendDuration: 0.3), value: restaurant.rating)
                     }
                 
-                Text(restaurant.description)
+                Text(restaurant.summary)
                     .padding()
                 
                 HStack(alignment: .top) {
@@ -106,6 +109,24 @@ struct RestaurantDetailView: View {
                 .buttonBorderShape(.roundedRectangle(radius: 25))
                 .controlSize(.large)
                 .padding(.horizontal)
+                
+                Button {
+                    withAnimation {
+                        restaurant.isFavorite.toggle()
+                    }
+                    if context.hasChanges {
+                        try? context.save()
+                    }
+                } label: {
+                    Text(restaurant.isFavorite ? "Remove from Favorites" : "Add to Favorites")
+                        .font(.system(.headline, design: .rounded))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .tint(Color(uiColor: .systemRed))
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 25))
+                .controlSize(.large)
+                .padding(.horizontal)
                 .padding(.bottom, 80)
             }
         }
@@ -129,7 +150,6 @@ struct RestaurantDetailView: View {
                 }
             }
         }
-
     }
 }
 

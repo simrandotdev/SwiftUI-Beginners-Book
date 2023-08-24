@@ -110,6 +110,7 @@ struct RestaurantListView_Previews: PreviewProvider {
 
 struct BasicTextImageView: View {
     
+    @Environment(\.managedObjectContext) var context
     @ObservedObject var restaurant: Restaurant
     
     @State private var showOptions = false
@@ -152,6 +153,9 @@ struct BasicTextImageView: View {
             
             Button( restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite") {
                 self.restaurant.isFavorite.toggle()
+                if context.hasChanges {
+                    try? context.save()
+                }
             }
             
             Button {
@@ -179,7 +183,6 @@ struct BasicTextImageView: View {
                 ActivityView(activityItems: [defaultText])
             }
         }
-        
     }
 }
 
