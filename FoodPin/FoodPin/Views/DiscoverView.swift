@@ -29,12 +29,8 @@ struct DiscoverView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .task {
-                do {
-                    try await cloudStore.fetchRestaurants()
-                } catch {
-                    print(error)
-                }
+            .onAppear {
+                cloudStore.fetchRestaurantsWithOperational()
             }
             .navigationTitle("Discover")
             .navigationBarTitleDisplayMode(.automatic)
