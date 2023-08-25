@@ -30,6 +30,8 @@
 		3DB40D642A4A1E3E00C7CD91 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB40D632A4A1E3E00C7CD91 /* RestaurantListView.swift */; };
 		3DB40D662A4A1E3F00C7CD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB40D652A4A1E3F00C7CD91 /* Assets.xcassets */; };
 		3DB40D692A4A1E3F00C7CD91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB40D682A4A1E3F00C7CD91 /* Preview Assets.xcassets */; };
+		3DEC90872A98FA0500E7609B /* RestaurantCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC90862A98FA0500E7609B /* RestaurantCloudKit.swift */; };
+		3DEC90892A98FABA00E7609B /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC90882A98FABA00E7609B /* DiscoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		3DB40D652A4A1E3F00C7CD91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DB40D682A4A1E3F00C7CD91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3DEC90852A98F25D00E7609B /* FoodPin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodPin.entitlements; sourceTree = "<group>"; };
+		3DEC90862A98FA0500E7609B /* RestaurantCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCloudKit.swift; sourceTree = "<group>"; };
+		3DEC90882A98FABA00E7609B /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				3D8044212A96D68F00579B2C /* EmptyView.swift */,
 				3D8044262A97A6AD00579B2C /* MainView.swift */,
 				3D8044282A97A70B00579B2C /* AboutView.swift */,
+				3DEC90882A98FABA00E7609B /* DiscoverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3D80441A2A964EAD00579B2C /* ImagePicker.swift */,
+				3DEC90862A98FA0500E7609B /* RestaurantCloudKit.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -259,10 +265,12 @@
 				3D8044202A96571A00579B2C /* FoodPin.xcdatamodeld in Sources */,
 				3D1332B52A93B11200942C5C /* ReviewView.swift in Sources */,
 				3D2535A02A813320001CD155 /* MapView.swift in Sources */,
+				3DEC90892A98FABA00E7609B /* DiscoverView.swift in Sources */,
 				3D660E282A736CD500E19806 /* RestaurantDetailView.swift in Sources */,
 				3D1332B12A93AA6100942C5C /* AnnotatedItem.swift in Sources */,
 				3D1332B32A93AF9F00942C5C /* Rating.swift in Sources */,
 				3D660E262A73626F00E19806 /* ActivityView.swift in Sources */,
+				3DEC90872A98FA0500E7609B /* RestaurantCloudKit.swift in Sources */,
 				3DB40D622A4A1E3E00C7CD91 /* FoodPinApp.swift in Sources */,
 				3D8044292A97A70B00579B2C /* AboutView.swift in Sources */,
 				3D400D9D2A4DDE4B002067B1 /* Restaurant.swift in Sources */,
