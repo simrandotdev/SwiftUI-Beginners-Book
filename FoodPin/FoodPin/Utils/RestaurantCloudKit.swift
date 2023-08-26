@@ -7,6 +7,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 class RestaurantCloudStore: ObservableObject {
     
@@ -57,5 +58,51 @@ class RestaurantCloudStore: ObservableObject {
         
         // Execute the query
         publicDatabase.add(queryOperation)
+    }
+    
+    func saveRecordToCloud(restaurant: Restaurant) {
+        
+        let record = CKRecord(recordType: "Restaurant")
+        record.setValuesForKeys([
+            "name": restaurant.name,
+            "type": restaurant.type,
+            "location": restaurant.location,
+            "phone": restaurant.phone,
+            "description": restaurant.summary,
+        ])
+        
+        let imageData = restaurant.image
+        // Resize the image
+        let originalImage = UIImage(data: imageData)!
+        let scalingFactor = (originalImage.size.width > 1024) ? 1024 / originalImage.size.width : 1
+        let scaledImage = UIImage(data: imageData, scale: scalingFactor)!
+        
+        // Create image asset for upload
+        let imageAsset = CKAsset(uiImage: scaledImage)
+        record.setValue(imageAsset, forKey: "image")
+        
+        // Get the public icloud database
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+        
+        // Save the record to iCloud
+        publicDatabase.save(record) { record, error in
+            if error != nil {
+                print("❌ Failed to save record in iCloud:", error.debugDescription)
+            }
+//            try? FileManager.default.removeItem(at: imageFileUrl)
+        }
+    }
+}
+
+
+extension CKAsset {
+    convenience init(uiImage: UIImage) {
+        // Write the image to local file for temporary use
+        let imageFilePath = NSTemporaryDirectory() + UUID().uuidString
+        let imageFileUrl = URL(filePath: imageFilePath)
+        try? uiImage.jpegData(compressionQuality: 0.8)?.write(to: imageFileUrl)
+        
+        // Create image asset for upload
+        self.init(fileURL: imageFileUrl)
     }
 }

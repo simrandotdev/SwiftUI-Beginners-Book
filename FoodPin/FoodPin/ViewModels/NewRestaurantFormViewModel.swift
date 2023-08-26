@@ -46,5 +46,9 @@ class NewRestaurantFormViewModel: ObservableObject {
             print("Failed to save the record...")
             print(error.localizedDescription)
         }
+        
+        // Saving to cloud as well
+        let cloudStore = RestaurantCloudStore()
+        cloudStore.saveRecordToCloud(restaurant: restaurant)
     }
 }
